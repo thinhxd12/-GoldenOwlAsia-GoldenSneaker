@@ -14,7 +14,7 @@ export default function ProductItem(props) {
                 <img src="./assets/images/check.png" alt="..." width={20} height={20} />
             </button>
         }
-        else return <button className="shop__item__button" onClick={() => {
+        return <button className="shop__item__button" onClick={() => {
             dispatch({
                 type: ADD_TO_CART,
                 item: { ...item, amount: 1 }

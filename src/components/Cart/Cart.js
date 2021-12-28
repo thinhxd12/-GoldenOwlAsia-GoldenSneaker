@@ -4,7 +4,13 @@ import CartItem from './CartItem'
 
 export default function Cart() {
     const { cart } = useSelector(state => state.CartReducer);
-    const totalPrice = cart.reduce((total, item) => { return total += item.amount * item.price }, 0).toLocaleString(2);
+    const renderPrice = () => {
+        let totalPrice = 0;
+        if (cart.length > 0) {
+            totalPrice = cart.reduce((total, item) => { return total += item.amount * item.price }, 0).toLocaleString(2);
+        }
+        return totalPrice;
+    }
     // console.log(cart)
     const renderCartItem = () => {
         if (cart.length === 0) {
@@ -19,7 +25,7 @@ export default function Cart() {
                     <img src="./assets/images/nike.png" alt="..." />
                     <h3>Your cart</h3>
                 </div>
-                <span>${totalPrice}</span>
+                <span>${renderPrice()}</span>
             </div>
             <div className="card__body">
                 {renderCartItem()}

@@ -3,11 +3,12 @@ import { ADD_ITEM, REMOVE_FROM_CART, SUBTRACT_ITEM } from "../types/CartType";
 import { ADD_TO_CART } from "../types/ProductType"
 
 
-let localCart = null;
+let localCart = [];
 
 if (localStorage.getItem(cartItems)) {
     localCart = JSON.parse(localStorage.getItem(cartItems))
 }
+
 const initialState = {
     cart: localCart,
 }
